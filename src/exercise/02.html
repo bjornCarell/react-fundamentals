@@ -12,16 +12,18 @@
   <script type="module">
     const rootElement = document.getElementById('root');
 
-    const createElement = (tag) => (...props) => React.createElement(tag, ...props);
+    const createElement = (tag) => (...propsAndChildren) => React.createElement(tag, ...propsAndChildren);
 
     const div = createElement('div');
     const span = createElement('span');
 
-    const Hello = span({children: 'Hello', key: 'Hello'});
-    const World = span({children: 'World', key: 'World'});
-    const Container = div({className: 'container'}, Hello, World);
+    // const Hello = span({children: 'Hello'});
+    // const World = span({children: 'World'});
+    // const Container = div({className: 'container'}, Hello, ' ', World);
 
-    console.log(Container)
+    const Hello = span({key: 'Hello'}, 'Hello');
+    const World = span({key: 'World'}, 'World');
+    const Container = div({className: 'container', children: [Hello, ' ', World]});
 
     ReactDOM.render(Container, rootElement);
     
