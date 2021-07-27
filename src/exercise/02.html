@@ -12,7 +12,10 @@
   <script type="module">
     const rootElement = document.getElementById('root');
 
-    const createElement = (tag) => (...propsAndChildren) => React.createElement(tag, ...propsAndChildren);
+    const createElement =
+      tag =>
+      (...propsAndChildren) =>
+        React.createElement(tag, ...propsAndChildren);
 
     const div = createElement('div');
     const span = createElement('span');
@@ -23,10 +26,12 @@
 
     const Hello = span({key: 'Hello'}, 'Hello');
     const World = span({key: 'World'}, 'World');
-    const Container = div({className: 'container', children: [Hello, ' ', World]});
+    const Container = div({
+      className: 'container',
+      children: [Hello, ' ', World],
+    });
 
     ReactDOM.render(Container, rootElement);
-    
 
     // const rootElement = document.getElementById('root')
 

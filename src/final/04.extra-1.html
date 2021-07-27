@@ -10,7 +10,7 @@
   <script type="text/babel">
     // This is being used as a component. But it's still not quite awesome yet.
     function message({children}) {
-      return <div className="message">{children}</div>
+      return <div className="message">{children}</div>;
     }
 
     const element = (
@@ -18,8 +18,8 @@
         {React.createElement(message, {children: 'Hello World'})}
         {React.createElement(message, {children: 'Goodbye World'})}
       </div>
-    )
+    );
 
-    ReactDOM.render(element, document.getElementById('root'))
+    ReactDOM.render(element, document.getElementById('root'));
   </script>
 </body>

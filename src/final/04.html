@@ -9,7 +9,7 @@
   <script type="text/babel">
     // NOTE: this is NOT being used as a component. We're not quite there yet.
     function message({children}) {
-      return <div className="message">{children}</div>
+      return <div className="message">{children}</div>;
     }
 
     const element = (
@@ -17,8 +17,8 @@
         {message({children: 'Hello World'})}
         {message({children: 'Goodbye World'})}
       </div>
-    )
+    );
 
-    ReactDOM.render(element, document.getElementById('root'))
+    ReactDOM.render(element, document.getElementById('root'));
   </script>
 </body>

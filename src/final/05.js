@@ -1,8 +1,8 @@
 // Styling
 // http://localhost:3000/isolated/final/05.js
 
-import * as React from 'react'
-import '../box-styles.css'
+import * as React from 'react';
+import '../box-styles.css';
 
 const smallBox = (
   <div
@@ -11,7 +11,7 @@ const smallBox = (
   >
     small lightblue box
   </div>
-)
+);
 const mediumBox = (
   <div
     className="box box--medium"
@@ -19,7 +19,7 @@ const mediumBox = (
   >
     medium pink box
   </div>
-)
+);
 const largeBox = (
   <div
     className="box box--large"
@@ -27,7 +27,7 @@ const largeBox = (
   >
     large orange box
   </div>
-)
+);
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
       {mediumBox}
       {largeBox}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
