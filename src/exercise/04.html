@@ -6,19 +6,41 @@
   <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
   <script type="text/babel">
     // 🐨 Make a function called `message` which returns the JSX we want to share
 
-    // 🐨 use that function in place of the divs below with:
-    // 💰 {message({children: 'Hello World'})} {message({children: 'Goodbye World'})}
-    const element = (
-      <div className="container">
-        <div className="message">Hello World</div>
-        <div className="message">Goodbye World</div>
+    const message = ({children}) => <div className="message">{children}</div>;
+
+    const bye = React.createElement(message, {children: 'Goodbye World'});
+
+    const MessageComponent = ({greeting, subject}) => (
+      <div className="message">
+        {greeting}, {subject}
       </div>
     );
 
+    const children = {greeting: 'Goodbye', subject: 'World'};
+    // 🐨 use that function in place of the divs below with:
+    // 💰 {message({children: 'Hello World'})} {message({children: 'Goodbye World'})}
+    const App = () => (
+      <>
+        {/* message({children: 'Hello World'}) */}
+        {/* message({children: 'Goodbye World'}) */}
+        {/* React.createElement(message, {children: 'Hello World'}) */}
+        {/* bye */}
+        <MessageComponent greeting="Hello" subject="World" />
+        <MessageComponent {...children} />
+        <MessageComponent greeting={6} subject="World" />
+      </>
+    );
+
+    MessageComponent.propTypes = {
+      greeting: PropTypes.string,
+      subject: PropTypes.string,
+    };
+
     // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
-    ReactDOM.render(element, document.getElementById('root'));
+    ReactDOM.render(<App />, document.getElementById('root'));
   </script>
 </body>

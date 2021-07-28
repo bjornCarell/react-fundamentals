@@ -21,14 +21,15 @@
     const children = 'Hello World';
     const props = {children, className};
 
-    const elementJSX = <div id="my-id" className="defaultClassName" {...props} />;
+    const elementJSX = (
+      <div id="my-id" className="defaultClassName" {...props} />
+    );
     // React.createElement('div', _extends({
     //   id: "my-id",
     //   className: "defaultClassName",
     // }), props);
     // but the className will be whatever is found in the ...props, since the
     // props comes after the explicit className="defaultClassName"
-
 
     // 💰 there are a few subtle differences between JSX and HTML. One such
     // difference is how you apply a class to an element in JSX is by using
