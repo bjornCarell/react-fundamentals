@@ -12,16 +12,56 @@ import '../box-styles.css';
 
 // 🐨 add a style prop to each of them as well so their background color
 // matches what the text says it should be as well as `fontStyle: 'italic'`
-const smallBox = <div>small lightblue box</div>;
-const mediumBox = <div>medium pink box</div>;
-const largeBox = <div>large orange box</div>;
+const smallBox = (
+  <div className="box box--small" style={{backgroundColor: 'lightblue'}}>
+    small lightblue box
+  </div>
+);
+const mediumBox = (
+  <div className="box box--medium" style={{backgroundColor: 'lightpink'}}>
+    medium pink box
+  </div>
+);
+const largeBox = (
+  <div className="box box--large" style={{backgroundColor: 'orange'}}>
+    large orange box
+  </div>
+);
+
+const Box = ({size, className = '', style, ...otherProps}) => {
+  const sizeClassName = size ? `box--${size}` : '';
+  return (
+    <div
+      className={`box ${sizeClassName}`}
+      style={{fontStyle: 'italic', ...style}}
+      {...otherProps}
+    />
+  );
+};
+
+const TranslateBox = React.createElement(
+  'div',
+  {
+    size: 'small',
+    className: 'box box--small',
+    style: {backgroundColor: 'lightblue'},
+  },
+  'small light box',
+);
 
 function App() {
   return (
     <div>
-      {smallBox}
-      {mediumBox}
-      {largeBox}
+      <Box size="small" style={{backgroundColor: 'lightblue'}}>
+        small light blue
+      </Box>
+      {TranslateBox}
+      <Box size="medium" style={{backgroundColor: 'lightpink'}}>
+        medium light blue
+      </Box>
+      <Box size="large" style={{backgroundColor: 'orange'}}>
+        medium light blue
+      </Box>
     </div>
   );
 }
